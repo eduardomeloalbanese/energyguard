@@ -1,0 +1,231 @@
+name: CI/CD - EnergyGuard
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  checks: write
+
+env:
+  DOTNET_VERSION: '7.0.x'
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 'true'
+  DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
+
+jobs:
+  build-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET ${{ env.DOTNET_VERSION }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore
+        run: dotnet restore EnergyGuard.sln
+
+      - name: Build (Release)
+        run: dotnet build EnergyGuard.sln -c Release --no-restore
+
+      - name: Test (Release) + cobertura
+        run: >
+          dotnet test EnergyGuard.sln -c Release --no-build
+          --logger "trx;LogFileName=test-results.trx"
+          --collect:"XPlat Code Coverage"
+          --results-directory ./TestResults
+
+      - name: Publicar resultados de teste
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        continue-on-error: true
+        with:
+          name: Testes xUnit
+          path: '**/test-results.trx'
+          reporter: dotnet-trx
+
+      - name: Upload artefatos de teste
+        uses: actions/upload-artifact@v4
+        if: success() || failure()
+        with:
+          name: test-results
+          path: ./TestResults
+          if-no-files-found: ignore
+
+  container-smoke-test:
+    name: Container Smoke Test (compose)
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Preparar .env
+        run: cp .env.example .env
+
+      - name: Subir API + banco (docker compose)
+        run: docker compose up -d --build
+
+      - name: Aguardar readiness (/health/ready)
+        run: |
+          for i in $(seq 1 24); do
+            if curl -fsS http://localhost:8080/health/ready; then
+              echo ""; echo "API saudavel."; exit 0
+            fi
+            echo "aguardando... (${i}0s)"; sleep 10
+          done
+          echo "API nao ficou saudavel a tempo."; exit 1
+
+      - name: Evidencia - liveness e readiness
+        run: |
+          echo "== /health/live ==";  curl -fsS http://localhost:8080/health/live;  echo ""
+          echo "== /health/ready =="; curl -fsS http://localhost:8080/health/ready; echo ""
+
+      - name: Evidencia - status dos conteineres
+        run: docker compose ps
+
+      - name: Evidencia - imagem construida
+        run: docker image ls energyguard-api || docker image ls
+
+      - name: Evidencia - logs da API
+        if: success() || failure()
+        run: docker compose logs --tail 60 api
+
+      - name: Demonstrar ambientes staging e producao
+        run: |
+          export IMAGE=energyguard-api:local
+          docker build -t "$IMAGE" .
+          echo "== STAGING (8081) =="
+          docker compose -f docker-compose.yml -f docker-compose.staging.yml up -d
+          for i in $(seq 1 18); do curl -fsS http://localhost:8081/health/ready && break || sleep 10; done
+          echo ""; echo "staging OK"
+          echo "== PRODUCTION (8082) =="
+          docker compose -f docker-compose.yml -f docker-compose.production.yml up -d
+          for i in $(seq 1 18); do curl -fsS http://localhost:8082/health/ready && break || sleep 10; done
+          echo ""; echo "production OK"
+
+      - name: Derrubar tudo
+        if: always()
+        run: |
+          docker compose -f docker-compose.yml -f docker-compose.production.yml down -v || true
+          docker compose -f docker-compose.yml -f docker-compose.staging.yml down -v || true
+          docker compose down -v || true
+
+  docker-build-push:
+    name: Build & Push Docker (GHCR)
+    needs: [build-test, container-smoke-test]
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login no GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Metadados da imagem (tags/labels)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,format=long
+            type=ref,event=branch
+
+      - name: Build & Push
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy-staging:
+    name: Deploy Staging
+    needs: docker-build-push
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'
+    environment:
+      name: staging
+      url: ${{ vars.STAGING_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH (docker compose)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.STAGING_SSH_HOST }}
+          username: ${{ secrets.STAGING_SSH_USER }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          script: |
+            cd ${{ secrets.STAGING_DEPLOY_PATH }}
+            export IMAGE=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            docker compose -f docker-compose.yml -f docker-compose.staging.yml pull
+            docker compose -f docker-compose.yml -f docker-compose.staging.yml up -d
+
+      - name: Verificacao de saude (readiness)
+        run: |
+          echo "Aguardando readiness em ${{ vars.STAGING_URL }}/health/ready ..."
+          for i in $(seq 1 10); do
+            if curl -fsS "${{ vars.STAGING_URL }}/health/ready"; then
+              echo "Staging saudavel."; exit 0
+            fi
+            sleep 10
+          done
+          echo "Staging nao ficou saudavel a tempo."; exit 1
+
+  deploy-production:
+    name: Deploy Production
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'
+    environment:
+      name: production
+      url: ${{ vars.PRODUCTION_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH (docker compose)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PRODUCTION_SSH_HOST }}
+          username: ${{ secrets.PRODUCTION_SSH_USER }}
+          key: ${{ secrets.PRODUCTION_SSH_KEY }}
+          script: |
+            cd ${{ secrets.PRODUCTION_DEPLOY_PATH }}
+            export IMAGE=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+            docker compose -f docker-compose.yml -f docker-compose.production.yml pull
+            docker compose -f docker-compose.yml -f docker-compose.production.yml up -d
+
+      - name: Verificacao de saude (readiness)
+        run: |
+          echo "Aguardando readiness em ${{ vars.PRODUCTION_URL }}/health/ready ..."
+          for i in $(seq 1 10); do
+            if curl -fsS "${{ vars.PRODUCTION_URL }}/health/ready"; then
+              echo "Producao saudavel."; exit 0
+            fi
+            sleep 10
+          done
+          echo "Producao nao ficou saudavel a tempo."; exit 1
