@@ -1,0 +1,32 @@
+# ============================================================================
+# EnergyGuard - Override de PRODUCAO
+# Usa a MESMA imagem validada (${IMAGE}, tag imutavel por SHA do GHCR).
+# Requer Docker Compose v2.24+ (por causa de "!reset").
+#
+#   docker compose -f docker-compose.yml -f docker-compose.production.yml pull
+#   docker compose -f docker-compose.yml -f docker-compose.production.yml up -d
+#
+# OBS.: executado localmente, isto e apenas uma DEMONSTRACAO do perfil de
+# producao. Nao representa um ambiente de producao publico real.
+# ============================================================================
+
+services:
+  api:
+    build: !reset null
+    image: "${IMAGE:?defina a variavel IMAGE, por exemplo ghcr.io/owner/repo com tag por SHA}"
+    container_name: energyguard-api-production
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+    ports:
+      - "${API_PORT:-8082}:8080"
+    # Em producao, reinicia sempre, salvo parada manual.
+    restart: always
+
+  db:
+    container_name: energyguard-db-production
+    restart: always
+    volumes:
+      - mssql-data-production:/var/opt/mssql
+
+volumes:
+  mssql-data-production:

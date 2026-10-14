@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="45225102-b495-4e79-9550-c27914a9507e" name="avell@DESKTOP-1U9EV5L 2026-10-13 13:11:36" runUser="DESKTOP-1U9EV5L\avell" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-10-13T13:11:36.2659671-03:00" queuing="2026-10-13T13:11:36.2659674-03:00" start="2026-10-13T13:11:32.3650387-03:00" finish="2026-10-13T13:11:37.4090860-03:00" />
+  <TestSettings name="default" id="d31523e4-00c5-4c0b-bd21-e85013d07725">
+    <Deployment runDeploymentRoot="avell_DESKTOP-1U9EV5L_2026-10-13_13_11_36" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="962d6170-dd12-48ab-b9f8-163d290356bd" testId="2b076353-678d-bd9b-d00e-2837cc9240f4" testName="EnergyGuard.Tests.HealthCheckTests.Liveness_IsPublic_AndReturns200" computerName="DESKTOP-1U9EV5L" duration="00:00:01.1072808" startTime="2026-10-13T13:11:35.8313381-03:00" endTime="2026-10-13T13:11:35.8313862-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="962d6170-dd12-48ab-b9f8-163d290356bd" />
+    <UnitTestResult executionId="395d3a3c-9eae-4d41-81d1-df1f3620f2e6" testId="242d5e09-3667-1145-2c36-7d40e0500bf8" testName="EnergyGuard.Tests.EnergyReadingsControllerTests.GetByDateRange_ReturnsHttpStatusCode200" computerName="DESKTOP-1U9EV5L" duration="00:00:02.1341885" startTime="2026-10-13T13:11:36.8527711-03:00" endTime="2026-10-13T13:11:36.8527712-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="395d3a3c-9eae-4d41-81d1-df1f3620f2e6" />
+    <UnitTestResult executionId="ad1cdebc-d861-44fb-8e91-027a4f4d38df" testId="df73ca67-27f0-8bb3-7dd4-d92999fd1c84" testName="EnergyGuard.Tests.HealthCheckTests.Readiness_WithAvailableDatabase_Returns200" computerName="DESKTOP-1U9EV5L" duration="00:00:00.0106161" startTime="2026-10-13T13:11:35.9116584-03:00" endTime="2026-10-13T13:11:35.9116586-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ad1cdebc-d861-44fb-8e91-027a4f4d38df" />
+    <UnitTestResult executionId="7637f03d-58af-49f8-b362-e2d07b96f750" testId="19cf0d4c-d636-9397-11e1-13464bb358d7" testName="EnergyGuard.Tests.ReportsControllerTests.GetReports_ReturnsHttpStatusCode200" computerName="DESKTOP-1U9EV5L" duration="00:00:00.3071894" startTime="2026-10-13T13:11:37.2357967-03:00" endTime="2026-10-13T13:11:37.2357968-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7637f03d-58af-49f8-b362-e2d07b96f750" />
+    <UnitTestResult executionId="95596241-c8c7-484b-8cb7-3da844f403b3" testId="2a49dd52-a8af-72ff-46fd-347597c9d88a" testName="EnergyGuard.Tests.HealthCheckTests.Health_IsReachableWithoutAuthentication" computerName="DESKTOP-1U9EV5L" duration="00:00:00.0674320" startTime="2026-10-13T13:11:35.9011512-03:00" endTime="2026-10-13T13:11:35.9011514-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="95596241-c8c7-484b-8cb7-3da844f403b3" />
+    <UnitTestResult executionId="60e64b12-2f36-4424-8e9a-e1e5e7dc3320" testId="8b755928-9095-c760-f072-41f2d38f2b12" testName="EnergyGuard.Tests.DevicesControllerTests.GetAll_ReturnsHttpStatusCode200" computerName="DESKTOP-1U9EV5L" duration="00:00:02.1387995" startTime="2026-10-13T13:11:36.8528421-03:00" endTime="2026-10-13T13:11:36.8528422-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="60e64b12-2f36-4424-8e9a-e1e5e7dc3320" />
+    <UnitTestResult executionId="bc3e0783-9428-4e0d-ae42-76ee56b72540" testId="d1159056-20ad-9306-6e81-4e723547eee1" testName="EnergyGuard.Tests.DevicesControllerTests.Create_WithValidData_ReturnsHttpStatusCode200" computerName="DESKTOP-1U9EV5L" duration="00:00:00.3304028" startTime="2026-10-13T13:11:37.1832607-03:00" endTime="2026-10-13T13:11:37.1832610-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bc3e0783-9428-4e0d-ae42-76ee56b72540" />
+    <UnitTestResult executionId="3333db54-81c4-4a52-9b0a-d559679119f6" testId="df2b27b2-70ff-7644-d6c8-ccd3036fa480" testName="EnergyGuard.Tests.AlertsControllerTests.GetActiveAlerts_ReturnsHttpStatusCode200" computerName="DESKTOP-1U9EV5L" duration="00:00:02.1434981" startTime="2026-10-13T13:11:36.8574069-03:00" endTime="2026-10-13T13:11:36.8574071-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3333db54-81c4-4a52-9b0a-d559679119f6" />
+    <UnitTestResult executionId="178a3be2-9aab-4300-af1d-d10e392420f7" testId="51b19a7d-247a-b4f3-cc6f-1e8a3f69da1b" testName="EnergyGuard.Tests.ReportsControllerTests.GenerateReport_ReturnsHttpStatusCode200" computerName="DESKTOP-1U9EV5L" duration="00:00:02.2144091" startTime="2026-10-13T13:11:36.9284461-03:00" endTime="2026-10-13T13:11:36.9284463-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="178a3be2-9aab-4300-af1d-d10e392420f7" />
+    <UnitTestResult executionId="bb096a8a-53d3-4bea-a550-ad0d9638dc4d" testId="c05841ac-88e3-16bf-17d9-0dcfd8658c3c" testName="EnergyGuard.Tests.AuthControllerTests.Register_ReturnsHttpStatusCode200" computerName="DESKTOP-1U9EV5L" duration="00:00:00.1623496" startTime="2026-10-13T13:11:36.8741111-03:00" endTime="2026-10-13T13:11:36.8741115-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb096a8a-53d3-4bea-a550-ad0d9638dc4d" />
+    <UnitTestResult executionId="8a6365c8-320d-4a0f-96a7-73f2a1c2436f" testId="7f47c20e-22e4-24a3-0301-6fa427df42bb" testName="EnergyGuard.Tests.EnergyReadingsControllerTests.RegisterReading_ReturnsHttpStatusCode200" computerName="DESKTOP-1U9EV5L" duration="00:00:00.4169127" startTime="2026-10-13T13:11:37.2697758-03:00" endTime="2026-10-13T13:11:37.2697760-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a6365c8-320d-4a0f-96a7-73f2a1c2436f" />
+    <UnitTestResult executionId="3ff97f0d-83de-4b49-97a0-5ebcc28e4531" testId="a7094e1f-a3b8-a45b-99c8-b2480c0427fe" testName="EnergyGuard.Tests.AuthControllerTests.Login_WithValidCredentials_ReturnsHttpStatusCode200" computerName="DESKTOP-1U9EV5L" duration="00:00:01.9977006" startTime="2026-10-13T13:11:36.7116854-03:00" endTime="2026-10-13T13:11:36.7116856-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3ff97f0d-83de-4b49-97a0-5ebcc28e4531" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="EnergyGuard.Tests.AuthControllerTests.Register_ReturnsHttpStatusCode200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="c05841ac-88e3-16bf-17d9-0dcfd8658c3c">
+      <Execution id="bb096a8a-53d3-4bea-a550-ad0d9638dc4d" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.AuthControllerTests" name="Register_ReturnsHttpStatusCode200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.DevicesControllerTests.Create_WithValidData_ReturnsHttpStatusCode200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="d1159056-20ad-9306-6e81-4e723547eee1">
+      <Execution id="bc3e0783-9428-4e0d-ae42-76ee56b72540" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.DevicesControllerTests" name="Create_WithValidData_ReturnsHttpStatusCode200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.HealthCheckTests.Liveness_IsPublic_AndReturns200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="2b076353-678d-bd9b-d00e-2837cc9240f4">
+      <Execution id="962d6170-dd12-48ab-b9f8-163d290356bd" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.HealthCheckTests" name="Liveness_IsPublic_AndReturns200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.HealthCheckTests.Readiness_WithAvailableDatabase_Returns200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="df73ca67-27f0-8bb3-7dd4-d92999fd1c84">
+      <Execution id="ad1cdebc-d861-44fb-8e91-027a4f4d38df" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.HealthCheckTests" name="Readiness_WithAvailableDatabase_Returns200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.HealthCheckTests.Health_IsReachableWithoutAuthentication" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="2a49dd52-a8af-72ff-46fd-347597c9d88a">
+      <Execution id="95596241-c8c7-484b-8cb7-3da844f403b3" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.HealthCheckTests" name="Health_IsReachableWithoutAuthentication" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.AlertsControllerTests.GetActiveAlerts_ReturnsHttpStatusCode200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="df2b27b2-70ff-7644-d6c8-ccd3036fa480">
+      <Execution id="3333db54-81c4-4a52-9b0a-d559679119f6" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.AlertsControllerTests" name="GetActiveAlerts_ReturnsHttpStatusCode200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.AuthControllerTests.Login_WithValidCredentials_ReturnsHttpStatusCode200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="a7094e1f-a3b8-a45b-99c8-b2480c0427fe">
+      <Execution id="3ff97f0d-83de-4b49-97a0-5ebcc28e4531" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.AuthControllerTests" name="Login_WithValidCredentials_ReturnsHttpStatusCode200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.DevicesControllerTests.GetAll_ReturnsHttpStatusCode200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="8b755928-9095-c760-f072-41f2d38f2b12">
+      <Execution id="60e64b12-2f36-4424-8e9a-e1e5e7dc3320" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.DevicesControllerTests" name="GetAll_ReturnsHttpStatusCode200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.ReportsControllerTests.GetReports_ReturnsHttpStatusCode200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="19cf0d4c-d636-9397-11e1-13464bb358d7">
+      <Execution id="7637f03d-58af-49f8-b362-e2d07b96f750" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.ReportsControllerTests" name="GetReports_ReturnsHttpStatusCode200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.EnergyReadingsControllerTests.GetByDateRange_ReturnsHttpStatusCode200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="242d5e09-3667-1145-2c36-7d40e0500bf8">
+      <Execution id="395d3a3c-9eae-4d41-81d1-df1f3620f2e6" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.EnergyReadingsControllerTests" name="GetByDateRange_ReturnsHttpStatusCode200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.EnergyReadingsControllerTests.RegisterReading_ReturnsHttpStatusCode200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="7f47c20e-22e4-24a3-0301-6fa427df42bb">
+      <Execution id="8a6365c8-320d-4a0f-96a7-73f2a1c2436f" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.EnergyReadingsControllerTests" name="RegisterReading_ReturnsHttpStatusCode200" />
+    </UnitTest>
+    <UnitTest name="EnergyGuard.Tests.ReportsControllerTests.GenerateReport_ReturnsHttpStatusCode200" storage="c:\users\avell\downloads\energyguard-entrega\energyguard.tests\bin\release\net7.0\energyguard.tests.dll" id="51b19a7d-247a-b4f3-cc6f-1e8a3f69da1b">
+      <Execution id="178a3be2-9aab-4300-af1d-d10e392420f7" />
+      <TestMethod codeBase="C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="EnergyGuard.Tests.ReportsControllerTests" name="GenerateReport_ReturnsHttpStatusCode200" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="2b076353-678d-bd9b-d00e-2837cc9240f4" executionId="962d6170-dd12-48ab-b9f8-163d290356bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="242d5e09-3667-1145-2c36-7d40e0500bf8" executionId="395d3a3c-9eae-4d41-81d1-df1f3620f2e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="df73ca67-27f0-8bb3-7dd4-d92999fd1c84" executionId="ad1cdebc-d861-44fb-8e91-027a4f4d38df" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="19cf0d4c-d636-9397-11e1-13464bb358d7" executionId="7637f03d-58af-49f8-b362-e2d07b96f750" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2a49dd52-a8af-72ff-46fd-347597c9d88a" executionId="95596241-c8c7-484b-8cb7-3da844f403b3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8b755928-9095-c760-f072-41f2d38f2b12" executionId="60e64b12-2f36-4424-8e9a-e1e5e7dc3320" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d1159056-20ad-9306-6e81-4e723547eee1" executionId="bc3e0783-9428-4e0d-ae42-76ee56b72540" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="df2b27b2-70ff-7644-d6c8-ccd3036fa480" executionId="3333db54-81c4-4a52-9b0a-d559679119f6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="51b19a7d-247a-b4f3-cc6f-1e8a3f69da1b" executionId="178a3be2-9aab-4300-af1d-d10e392420f7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c05841ac-88e3-16bf-17d9-0dcfd8658c3c" executionId="bb096a8a-53d3-4bea-a550-ad0d9638dc4d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7f47c20e-22e4-24a3-0301-6fa427df42bb" executionId="8a6365c8-320d-4a0f-96a7-73f2a1c2436f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a7094e1f-a3b8-a45b-99c8-b2480c0427fe" executionId="3ff97f0d-83de-4b49-97a0-5ebcc28e4531" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Resultados que não estão em uma lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos os resultados carregados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="12" executed="12" passed="12" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.5+1caef2f33e (64-bit .NET 7.0.20)&#xD;
+[xUnit.net 00:00:01.46]   Discovering: EnergyGuard.Tests&#xD;
+[xUnit.net 00:00:01.49]   Discovered:  EnergyGuard.Tests&#xD;
+[xUnit.net 00:00:01.49]   Starting:    EnergyGuard.Tests&#xD;
+[xUnit.net 00:00:04.11]   Finished:    EnergyGuard.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

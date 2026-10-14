@@ -1,0 +1,39 @@
+﻿EnergyGuard - Evidencia de TESTES (gerado em 2026-10-13 13:11:25)
+Comando: dotnet test EnergyGuard.sln -c Release --logger trx
+================================================================
+Execução de teste para C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll (.NETCoreApp,Version=v7.0)
+Ferramenta de Linha de Comando de Execução de Teste da Microsoft (R) Versão 17.7.2 (x64)
+Copyright (c) Microsoft Corporation. Todos os direitos reservados.
+
+Iniciando execução de teste, espere...
+1 arquivos de teste no total corresponderam ao padrão especificado.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+AVISO: sobrescrevendo o arquivo de resultados: C:\Users\avell\Downloads\EnergyGuard-Entrega\TestResults\test-results.trx
+Arquivo de resultados: C:\Users\avell\Downloads\EnergyGuard-Entrega\TestResults\test-results.trx
+
+Aprovado!  – Com falha:     0, Aprovado:    12, Ignorado:     0, Total:    12, Duração: 1 s - EnergyGuard.Tests.dll (net7.0)

@@ -1,0 +1,17 @@
+﻿EnergyGuard - Evidencia de BUILD (gerado em 2026-10-13 13:11:25)
+Comando: dotnet build EnergyGuard.sln -c Release
+================================================================
+Versão do MSBuild 17.7.6+77d58ec69 para .NET
+  Determining projects to restore...
+  Todos os projetos estão atualizados para restauração.
+  EnergyGuard.Domain -> C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Domain\bin\Release\net7.0\EnergyGuard.Domain.dll
+  EnergyGuard.Application -> C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Application\bin\Release\net7.0\EnergyGuard.Application.dll
+  EnergyGuard.Infrastructure -> C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Infrastructure\bin\Release\net7.0\EnergyGuard.Infrastructure.dll
+  EnergyGuard.API -> C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.API\bin\Release\net7.0\EnergyGuard.API.dll
+  EnergyGuard.Tests -> C:\Users\avell\Downloads\EnergyGuard-Entrega\EnergyGuard.Tests\bin\Release\net7.0\EnergyGuard.Tests.dll
+
+Compilação com êxito.
+    0 Aviso(s)
+    0 Erro(s)
+
+Tempo Decorrido 00:00:02.96

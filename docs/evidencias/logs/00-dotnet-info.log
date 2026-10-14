@@ -1,0 +1,38 @@
+﻿.NET SDK:
+ Version:   7.0.410
+ Commit:    8b4848c3b2
+
+Ambiente de runtime:
+ OS Name:     Windows
+ OS Version:  10.0.19045
+ OS Platform: Windows
+ RID:         win10-x64
+ Base Path:   C:\Users\avell\.dotnet\sdk\7.0.410\
+
+Host:
+  Version:      7.0.20
+  Architecture: x64
+  Commit:       0fb6ac59fb
+
+.NET SDKs installed:
+  7.0.410 [C:\Users\avell\.dotnet\sdk]
+
+.NET runtimes installed:
+  Microsoft.AspNetCore.App 7.0.20 [C:\Users\avell\.dotnet\shared\Microsoft.AspNetCore.App]
+  Microsoft.NETCore.App 7.0.20 [C:\Users\avell\.dotnet\shared\Microsoft.NETCore.App]
+  Microsoft.WindowsDesktop.App 7.0.20 [C:\Users\avell\.dotnet\shared\Microsoft.WindowsDesktop.App]
+
+Other architectures found:
+  None
+
+Environment variables:
+  DOTNET_ROOT       [C:\Users\avell\.dotnet]
+
+global.json file:
+  Not found
+
+Learn more:
+  https://aka.ms/dotnet/info
+
+Download .NET:
+  https://aka.ms/dotnet/download

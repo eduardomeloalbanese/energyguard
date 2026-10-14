@@ -1,0 +1,10 @@
+﻿EnergyGuard - Validacao de sintaxe YAML (gerado em 2026-10-13 14:05:12)
+Validador: YamlDotNet (parser YAML real), via .NET 7
+Arquivos: ci-cd.yml, docker-compose.yml, docker-compose.staging.yml, docker-compose.production.yml
+================================================================
+OK    .github\workflows\ci-cd.yml  (documentos YAML: 1)
+OK    docker-compose.yml  (documentos YAML: 1)
+OK    docker-compose.staging.yml  (documentos YAML: 1)
+OK    docker-compose.production.yml  (documentos YAML: 1)
+
+TODOS os YAML sao sintaticamente validos.

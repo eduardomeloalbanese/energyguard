@@ -1,0 +1,28 @@
+# ============================================================================
+# EnergyGuard - Override de STAGING
+# Usa a MESMA imagem validada (${IMAGE}, de preferencia a tag por SHA do GHCR),
+# em vez de reconstruir. Requer Docker Compose v2.24+ (por causa de "!reset").
+#
+#   docker compose -f docker-compose.yml -f docker-compose.staging.yml pull
+#   docker compose -f docker-compose.yml -f docker-compose.staging.yml up -d
+# ============================================================================
+
+services:
+  api:
+    # Consome a imagem ja construida e publicada; nao constroi em staging.
+    build: !reset null
+    image: "${IMAGE:?defina a variavel IMAGE, por exemplo ghcr.io/owner/repo com tag por SHA}"
+    container_name: energyguard-api-staging
+    environment:
+      ASPNETCORE_ENVIRONMENT: Staging
+    ports:
+      - "${API_PORT:-8081}:8080"
+    restart: unless-stopped
+
+  db:
+    container_name: energyguard-db-staging
+    volumes:
+      - mssql-data-staging:/var/opt/mssql
+
+volumes:
+  mssql-data-staging:
